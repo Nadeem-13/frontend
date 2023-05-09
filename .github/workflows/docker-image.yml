@@ -15,4 +15,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag ${{ steps.login-ecr.output.registry }}
+    
+    - name : docker login
+      env:
+        DOCKER_USERNAME : ${{ secrets.DOCKER_USERNAME }}
+        DOCKERHUB_PASSWORD : ${{ secrets. DOCKERHUB_PASSWORD }}
+      run : |
+        docker login -u $DOCKER_USERNAME -p $DOCKERHUB_PASSWORD
+        
+    - name : Docker push to docker hub
+      run: docker push $DOCKER_USERNAME/frontend
+    
+       
