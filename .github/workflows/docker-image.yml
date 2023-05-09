@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run : docker build . --file Dockerfile --tage frontend/my-image:latest
+      run : docker build . --file Dockerfile --tag frontend/my-image:latest
        
     - name : docker login
       env:
@@ -25,6 +25,6 @@ jobs:
         docker login -u $DOCKER_USERNAME -p $DOCKERHUB_PASSWORD
         
     - name : Docker push to docker hub
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/nadeem-sleep
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/gha23:frontend/my-image:latest
     
        
