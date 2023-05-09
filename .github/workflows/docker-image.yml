@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run : docker build . --file Dockerfile --tage frontend/my-image:latest
+      run : docker build . --file Dockerfile --tag frontend/my-image:latest
        
     - name : docker login
       env:
