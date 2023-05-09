@@ -30,6 +30,6 @@ jobs:
         docker login -u $DOCKER_USERNAME -p $DOCKERHUB_PASSWORD
         
     - name : Docker push to docker hub
-      run: docker push $DOCKER_USERNAME/frontend
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/nadeem-sleep
     
        
