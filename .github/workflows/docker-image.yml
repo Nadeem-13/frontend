@@ -20,7 +20,7 @@ jobs:
         context:
         file: Dockerfile
         push : true
-        tag:  newimage:latest
+        tag: $DOCKER_USERNAME/newimage:latest
     
     - name : docker login
       env:
