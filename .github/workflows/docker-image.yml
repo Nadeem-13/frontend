@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t ${{ steps.login-ecr.output.registry }}
+      run: docker build -t${{ steps.login-ecr.output.registry }}
     
     - name : docker login
       env:
