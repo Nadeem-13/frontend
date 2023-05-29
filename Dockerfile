@@ -7,6 +7,6 @@ COPY . .
 RUN npm install
 RUN npm run build
 ### STAGE 2: Run ###
-FROM nginx:stable-alpine
+FROM nginx:mainline-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=kapil /usr/src/app/dist/mean-course /usr/share/nginx/html
